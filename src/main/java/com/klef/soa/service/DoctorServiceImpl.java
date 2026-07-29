@@ -22,7 +22,7 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor updatDoctor(Doctor d) {
+	public Doctor updateDoctor(Doctor d) {
 		Optional<Doctor> optional = repo.findById(d.getId());
 		
 		if(optional.isPresent()) {
@@ -70,6 +70,11 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public List<Doctor> displayDoctorsByGender(String gender) {
 		return repo.findByGender(gender);
+	}
+
+	@Override
+	public Long doctorCount() {
+		return repo.count();
 	}
 	
 	
